@@ -69,11 +69,18 @@ superagent.get('http://news.baidu.com/')
     }
   })
 
+
+
 router.get('/', async (req, res, next) => {
-  res.send({
-    hotNews,
-    localNews
-  });
+  let data = {
+    status:'0',
+    msg:'操作成功',
+    dataList:{
+      hotNews,
+      localNews
+    }
+  }
+  res.send(JSON.stringify(data));
 });
 
 module.exports = router;
